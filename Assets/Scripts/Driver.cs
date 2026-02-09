@@ -35,7 +35,7 @@ public class Driver : MonoBehaviour
     // Collision Detection
     void OnCollisionEnter2D(Collision2D collision) 
     {
-        currentSpeed = slowSpeed;
+        // currentSpeed = slowSpeed;
         if (collision.gameObject.name == "Customer")
             Debug.Log("Hit a customer!");
         else if (collision.gameObject.name == "Chair")
