@@ -8,4 +8,19 @@ public class StartMenu : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(1);
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+
+    public void HowToPlay()
+    {
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
