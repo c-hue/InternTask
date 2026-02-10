@@ -825,7 +825,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -2705,13 +2705,13 @@ TextureImporter:
       name: Interiors_free_16x16_68
       rect:
         serializedVersion: 2
-        x: 200
+        x: 193
         y: 1008
         width: 17
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 1, w: 0}
       customData: 
       outline:
       - - {x: 17, y: 15}
@@ -4154,12 +4154,12 @@ TextureImporter:
       name: Interiors_free_16x16_121
       rect:
         serializedVersion: 2
-        x: 252
-        y: 758
-        width: 4
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 254
+        y: 763
+        width: 2
+        height: 32
+      alignment: 9
+      pivot: {x: 3.4038696, y: 0.5882069}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
@@ -6043,12 +6043,12 @@ TextureImporter:
       name: Interiors_free_16x16_190
       rect:
         serializedVersion: 2
-        x: 207
-        y: 486
-        width: 17
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 198
+        y: 495
+        width: 19
+        height: 11
+      alignment: 9
+      pivot: {x: 0.49468914, y: 0.8396385}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline:
