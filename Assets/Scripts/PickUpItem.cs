@@ -29,6 +29,7 @@ public class PickUpItem : MonoBehaviour
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {   
+                holdingItem = true;
                 switch (itemType.type)
                 {
                     case ItemType.Water:
@@ -63,6 +64,20 @@ public class PickUpItem : MonoBehaviour
                 this.item.SetActive(true);
                 
             }
+        } 
+        if (inDeliveryZone)
+        {
+            if (holdingItem)
+            {
+                if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                {
+                    Debug.Log("drop item");
+                    holdingItem = false;
+                    itemType = null;
+                    this.item.SetActive(false);
+                }
+            }
+            
         }
     }
     
@@ -72,23 +87,28 @@ public class PickUpItem : MonoBehaviour
         {
             Debug.Log("In PickUpZone");
             inPickUpZone = true;
-            holdingItem = true;
             itemType = collision.gameObject.GetComponent<Item>();
         }
 
         if (collision.gameObject.tag == "DeliveryZone")
         {
             Debug.Log("In DeliveryZone");
+            inDeliveryZone = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<Item>() == itemType)
+        if (collision.gameObject.tag == "PickUpZone")
         {
             Debug.Log("Not in PickUpZone");
             inPickUpZone = false;
-            itemType = null;
+        }
+
+        if (collision.gameObject.tag == "DeliveryZone")
+        {
+            Debug.Log("Not in Delivery");
+            inDeliveryZone = false;
         }
             
     }
