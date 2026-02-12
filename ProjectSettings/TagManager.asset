@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 3
   tags:
+<<<<<<< HEAD
   - Door
   - Hazard
+=======
+  - PickUpZone
+  - DeliveryZone
+>>>>>>> aa5ccf4f93be04c0a11f1d2664667f86bf9dcf15
   layers:
   - Default
   - TransparentFX
