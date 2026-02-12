@@ -44,8 +44,6 @@ public class Door : MonoBehaviour
     // when player walks through door
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
-
         if (!isLocked) // Do not open door if locked
             sr.sprite = openedDoor; // open door
     }
@@ -53,7 +51,6 @@ public class Door : MonoBehaviour
     // when player leaves door
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
         if (isLocked) return;
 
         // schedule close delay
