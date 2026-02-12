@@ -1,3 +1,4 @@
+// Player Movement and speed
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,40 +6,37 @@ using UnityEngine.InputSystem;
 public class Driver : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] float currentSpeed = 5f;
-    [SerializeField] float regSpeed = 3f;
-    [SerializeField] float slowSpeed = 2f;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("Game has started!");
-    }
+    [SerializeField] public float baseSpeed = 7f;
+    [SerializeField] public float slowMultiplier = 0.4f;
+    [SerializeField] public float boostMultiplier = 1.5f;
 
     // Update is called once per frame
     void Update()
     {
         // Movement
         if (Keyboard.current.wKey.isPressed)
-            transform.Translate(0, currentSpeed * Time.deltaTime, 0);
+            transform.Translate(0, baseSpeed * Time.deltaTime, 0);
 
         else if (Keyboard.current.sKey.isPressed)
-            transform.Translate(0, -currentSpeed * Time.deltaTime, 0);
+            transform.Translate(0, -baseSpeed * Time.deltaTime, 0);
 
         else if (Keyboard.current.aKey.isPressed)
-            transform.Translate(-currentSpeed * Time.deltaTime, 0, 0);
+            transform.Translate(-baseSpeed * Time.deltaTime, 0, 0);
 
         else if (Keyboard.current.dKey.isPressed)
-            transform.Translate(currentSpeed * Time.deltaTime, 0,0);
+            transform.Translate(baseSpeed * Time.deltaTime, 0,0);
     }
 
-    // Collision Detection
-    void OnCollisionEnter2D(Collision2D collision) 
+    // Hazard Slow Logic
+    void OnTriggerEnter2D(Collider2D hazard) 
     {
-        // currentSpeed = slowSpeed;
-        if (collision.gameObject.name == "Customer")
-            Debug.Log("Hit a customer!");
-        else if (collision.gameObject.name == "Chair")
-            Debug.Log("Hit a chair!");
+        if (!hazard.CompareTag("Hazard")) return;
+        baseSpeed *= slowMultiplier;
+    }
+
+    void OnTriggerExit2D(Collider2D hazard)
+    {
+        if (!hazard.CompareTag("Hazard")) return;
+        baseSpeed /= slowMultiplier;
     }
 } 
