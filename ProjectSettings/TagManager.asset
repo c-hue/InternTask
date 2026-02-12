@@ -4,13 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-<<<<<<< HEAD
   - Door
   - Hazard
-=======
-  - PickUpZone
-  - DeliveryZone
->>>>>>> aa5ccf4f93be04c0a11f1d2664667f86bf9dcf15
   layers:
   - Default
   - TransparentFX
@@ -47,21 +42,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: New Layer 2
-    uniqueID: 1667227075
-    locked: 0
-  - name: New Layer 1
-    uniqueID: 2218949621
-    locked: 0
-  - name: New Layer 3
-    uniqueID: 1630793975
-    locked: 0
-  - name: New Layer 4
-    uniqueID: 663172453
-    locked: 0
-  - name: New Layer 5
-    uniqueID: 1931047571
     locked: 0
   m_RenderingLayers:
   - Default
