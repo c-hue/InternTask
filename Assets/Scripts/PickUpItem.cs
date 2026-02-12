@@ -20,7 +20,9 @@ public class PickUpItem : MonoBehaviour
     [SerializeField] Sprite eraser;
     
 
-    void Start() {
+    void Start()
+    {
+        holdingItem = false;
     }
 
     void Update()
