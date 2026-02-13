@@ -7,36 +7,48 @@ public class Driver : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] public float baseSpeed = 7f;
-    [SerializeField] public float slowMultiplier = 0.4f;
-    [SerializeField] public float boostMultiplier = 1.5f;
+    [SerializeField] public float currentSpeed = 7f;
+    [SerializeField] public float slowSpeed = 3f;
+    [SerializeField] public float boostSpeed = 10f;
 
     // Update is called once per frame
     void Update()
     {
         // Movement
         if (Keyboard.current.wKey.isPressed)
-            transform.Translate(0, baseSpeed * Time.deltaTime, 0);
+            transform.Translate(0, currentSpeed * Time.deltaTime, 0);
 
         else if (Keyboard.current.sKey.isPressed)
-            transform.Translate(0, -baseSpeed * Time.deltaTime, 0);
+            transform.Translate(0, -currentSpeed * Time.deltaTime, 0);
 
         else if (Keyboard.current.aKey.isPressed)
-            transform.Translate(-baseSpeed * Time.deltaTime, 0, 0);
+            transform.Translate(-currentSpeed * Time.deltaTime, 0, 0);
 
         else if (Keyboard.current.dKey.isPressed)
-            transform.Translate(baseSpeed * Time.deltaTime, 0,0);
+            transform.Translate(currentSpeed * Time.deltaTime, 0,0);
     }
 
-    // Hazard Slow Logic
-    void OnTriggerEnter2D(Collider2D hazard) 
+    // Hazard Slow / Boost Fast Logic
+    void OnTriggerEnter2D(Collider2D collision) 
     {
-        if (!hazard.CompareTag("Hazard")) return;
-        baseSpeed *= slowMultiplier;
+        if (collision.CompareTag("Hazard"))
+            currentSpeed = slowSpeed;
+
+        else if (collision.CompareTag("Boost")) // remove boost after use
+        {
+            currentSpeed = boostSpeed;
+            Destroy(collision.gameObject);
+        }
     }
 
-    void OnTriggerExit2D(Collider2D hazard)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        if (!hazard.CompareTag("Hazard")) return;
-        baseSpeed /= slowMultiplier;
+        if (collision.CompareTag("Hazard")) // only return to base speed after leaving hazard
+            currentSpeed = baseSpeed;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) // only return to base speed after collision
+    {
+        currentSpeed = baseSpeed;
     }
 } 
