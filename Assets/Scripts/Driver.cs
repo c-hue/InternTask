@@ -6,26 +6,47 @@ using UnityEngine.InputSystem;
 public class Driver : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] public float baseSpeed = 7f;
-    [SerializeField] public float currentSpeed = 7f;
-    [SerializeField] public float slowSpeed = 3f;
-    [SerializeField] public float boostSpeed = 10f;
+    [SerializeField] float baseSpeed = 7f;
+    [SerializeField] float currentSpeed = 7f;
+    [SerializeField] float slowSpeed = 3f;
+    [SerializeField]  float boostSpeed = 10f;
+
+    [Header("Sprites")]
+    [SerializeField] Sprite frontSprite;
+    [SerializeField] Sprite backSprite;
+    [SerializeField] Sprite leftSprite;
+    [SerializeField] Sprite rightSprite;
+    private SpriteRenderer sr;
+
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         // Movement
         if (Keyboard.current.wKey.isPressed)
+        {
             transform.Translate(0, currentSpeed * Time.deltaTime, 0);
-
+            sr.sprite = backSprite;
+        }
         else if (Keyboard.current.sKey.isPressed)
+        {
             transform.Translate(0, -currentSpeed * Time.deltaTime, 0);
-
+            sr.sprite = frontSprite;
+        }
         else if (Keyboard.current.aKey.isPressed)
+        {
             transform.Translate(-currentSpeed * Time.deltaTime, 0, 0);
-
+            sr.sprite = leftSprite;
+        }
         else if (Keyboard.current.dKey.isPressed)
+        {
             transform.Translate(currentSpeed * Time.deltaTime, 0,0);
+            sr.sprite = rightSprite;
+        }
     }
 
     // Hazard Slow / Boost Fast Logic

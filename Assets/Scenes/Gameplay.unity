@@ -755,7 +755,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3.9493036
+  orthographic size: 6.3359375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4012,8 +4012,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Driver
   baseSpeed: 7
-  slowMultiplier: 0.6
-  boostMultiplier: 1.5
+  currentSpeed: 7
+  slowSpeed: 3
+  boostSpeed: 11
+  frontSprite: {fileID: 1020844329110164504, guid: b8778c4e94a8940f0b70af517c1684cb, type: 3}
+  backSprite: {fileID: 6264119291675310881, guid: b8778c4e94a8940f0b70af517c1684cb, type: 3}
+  leftSprite: {fileID: 8948711314381522030, guid: b8778c4e94a8940f0b70af517c1684cb, type: 3}
+  rightSprite: {fileID: 211992399548004518, guid: b8778c4e94a8940f0b70af517c1684cb, type: 3}
 --- !u!50 &1112857524
 Rigidbody2D:
   serializedVersion: 5
@@ -18809,7 +18814,7 @@ GameObject:
   - component: {fileID: 1916757548}
   - component: {fileID: 1916757545}
   m_Layer: 0
-  m_Name: HazardSpawner
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18891,13 +18896,16 @@ MonoBehaviour:
   hazardPrefabs:
   - {fileID: 1080243776171771821, guid: ac279727a762e4bf0a8fb397d8089ec0, type: 3}
   - {fileID: 3982561239072561393, guid: 2e74a3a4c506349be8374af0e6ca8dbd, type: 3}
+  boostPrefab: {fileID: 2035645468729795443, guid: 582ea4c9c175249cf96822213669c1b6, type: 3}
   spawnArea: {fileID: 1916757545}
   blockedArea:
     serializedVersion: 2
     m_Bits: 8
   offset: 1
-  spawnInterval: 5
+  hazardInterval: 5
   hazardLifetime: 15
+  boostInterval: 20
+  boostLifetime: 50
 --- !u!1 &1926032196
 GameObject:
   m_ObjectHideFlags: 0
