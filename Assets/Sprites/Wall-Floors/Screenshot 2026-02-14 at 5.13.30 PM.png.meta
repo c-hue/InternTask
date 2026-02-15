@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff1492f86f7524e879bb413a5ef29035
+guid: a11ae9691dd0e427db2d9c9635bdbcbb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4231541304711598978
-    second: Adam_idle_16x16_0
+      213: -4546414450472969137
+    second: "Screenshot 2026-02-14 at 5.13.30\u202FPM_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,7 +74,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Adam_idle_16x16_0
+      name: "Screenshot 2026-02-14 at 5.13.30\u202FPM_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 32
+        x: 1
+        y: 2
+        width: 152
+        height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7ca5406a9b8645c0800000000000000
-      internalID: -4231541304711598978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Adam_idle_16x16_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20abe661bfe0e4bf1bdf0449311a4c2b
-      internalID: 190422463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Adam_idle_16x16_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e22dfcca2cd96476eaad5fa8c788cb56
-      internalID: 1122879582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Adam_idle_16x16_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90136d9cd21da40f68dc5e2f9986eaef
-      internalID: 266406911
+      spriteID: f4c1bdd2524e7e0c0800000000000000
+      internalID: -4546414450472969137
       vertices: []
       indices: 
       edges: []
@@ -191,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 178f611df94a941e39747723515d626a
+    spriteID: f4d08655f7fed4ec68c34e2fd1835c50
     internalID: 0
     vertices: []
     indices: 
@@ -199,14 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":20.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Adam_idle_16x16_0: -4231541304711598978
-      Adam_idle_16x16_1: 190422463
-      Adam_idle_16x16_2: 1122879582
-      Adam_idle_16x16_3: 266406911
+      "Screenshot 2026-02-14 at 5.13.30\u202FPM_0": -4546414450472969137
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
