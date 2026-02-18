@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum ItemType
 {
-    Water, Coffee, Paper, Clipboard, Stapler, PencilHolder, PaperClip, Scissor, Eraser
+    Water, Coffee, Paper, Clipboard, Stapler, PencilHolder, PaperClip, Scissor, Eraser, Null
 }
 
 public class Item : MonoBehaviour
