@@ -6,6 +6,7 @@ public class Delivery : MonoBehaviour
 {
     private bool inPickUpZone;
     private bool inDeliveryZone;
+    private bool inTrashZone;
     private bool holdingItem;
     private Item itemType;
     private Item requestType;
@@ -92,6 +93,19 @@ public class Delivery : MonoBehaviour
             }
             
         }
+        if (inTrashZone)
+        {
+            if(holdingItem)
+            {
+                if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                {
+                    Debug.Log("trash item");
+                    holdingItem = false;
+                    itemType = null;
+                    this.item.SetActive(false);
+                }
+            }
+        }
     }
     
     void OnTriggerEnter2D(Collider2D collision)
@@ -114,6 +128,12 @@ public class Delivery : MonoBehaviour
             request = collision.gameObject;
             Debug.Log("Requesting: " + requestType.type);
         }
+
+        if (collision.gameObject.tag == "TrashZone")
+        {
+            Debug.Log("In TrashZone");
+            inTrashZone = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -129,6 +149,11 @@ public class Delivery : MonoBehaviour
             Debug.Log("Not in Delivery");
             inDeliveryZone = false;
             request = null;
+        }
+
+        if (collision.gameObject.tag == "TrashZone")
+        {
+            inTrashZone = false;
         }
             
     }
