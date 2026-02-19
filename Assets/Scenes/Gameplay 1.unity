@@ -478,8 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 51093301}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &66201679
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,8 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 66201684}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &100987476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,8 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 170264570}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &253221526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,8 +1434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 260592212}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &292482354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,8 +2001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 457489154}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &485089326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,11 +2175,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 485089326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
+  m_Script: {fileID: 11500000, guid: d69a2a85ba8c4468fafe5ea50d56839a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 485089331}
-  deleteRequestTimer: 0
+  m_EditorClassIdentifier: Assembly-CSharp::MeetingRequest
+  createRequestTimer: 0
+  itemRequestSprite: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5738,8 +5733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 617930953}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &721793183
 GameObject:
   m_ObjectHideFlags: 0
@@ -6273,11 +6267,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1014375453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
+  m_Script: {fileID: 11500000, guid: d69a2a85ba8c4468fafe5ea50d56839a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 1014375458}
-  deleteRequestTimer: 0
+  m_EditorClassIdentifier: Assembly-CSharp::MeetingRequest
+  createRequestTimer: 0
+  itemRequestSprite: {fileID: 0}
 --- !u!1 &1028058323
 GameObject:
   m_ObjectHideFlags: 0
@@ -6755,8 +6749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 1082199869}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &1112857520
 GameObject:
   m_ObjectHideFlags: 0
@@ -21972,8 +21965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 1354376800}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &1388917585
 GameObject:
   m_ObjectHideFlags: 0
@@ -22150,8 +22142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 1388917590}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &1405784726
 GameObject:
   m_ObjectHideFlags: 0
@@ -22328,8 +22319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 1405784731}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &1442881578
 GameObject:
   m_ObjectHideFlags: 0
@@ -23443,8 +23433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb46963c0dc7488d9f25d27a591d824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
-  itemManager: {fileID: 1788913687}
-  deleteRequestTimer: 0
+  createRequestTimer: 0
 --- !u!1 &1887106272
 GameObject:
   m_ObjectHideFlags: 0
