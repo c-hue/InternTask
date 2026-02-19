@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class Request : MonoBehaviour
+public class BossRequest : MonoBehaviour
 {
     private ItemManager itemManager;
     public float createRequestTimer;
     private float deleteRequestTimer;
     private SpriteRenderer itemRequestSprite;
     private SpriteRenderer requestSprite;
-    private bool requestActive;
+    private bool day5;
     void Start()
     {
-        createRequestTimer = Random.Range(5f, 30f);
-        Debug.Log(createRequestTimer);
+        if (day5)
+        {
+            createRequestTimer = Random.Range(5f, 30f);
+        }
         itemManager = this.GetComponent<ItemManager>();
         requestSprite = this.GetComponent<SpriteRenderer>();
         itemRequestSprite = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -19,18 +21,17 @@ public class Request : MonoBehaviour
 
     void Update()
     {
-        if (!requestActive)
+        if (day5)
         {
-            if (createRequestTimer > 0)
+            if (createRequestTimer > 0 && deleteRequestTimer == 0)
             {
                 createRequestTimer -= Time.deltaTime;
             } else
             {
                 CreateRequest();
             }
-        } else
-        {
-            if (deleteRequestTimer > 0)
+
+            if (deleteRequestTimer > 0 && createRequestTimer == 0)
             {
                 deleteRequestTimer -= Time.deltaTime;
             } else
@@ -38,6 +39,7 @@ public class Request : MonoBehaviour
                 DeleteRequest();
             }
         }
+        
     }
     
     void CreateRequest()
@@ -46,7 +48,6 @@ public class Request : MonoBehaviour
         itemManager.assignRandomItem();
         itemRequestSprite.sprite = itemManager.currentItem.icon;
         requestSprite.enabled = true;
-        requestActive = true;
     }
 
     void DeleteRequest()
@@ -54,7 +55,6 @@ public class Request : MonoBehaviour
         itemRequestSprite.sprite = null;
         requestSprite.enabled = false;
         createRequestTimer = Random.Range(5f, 30f);
-        requestActive = false;
     }
 
 
