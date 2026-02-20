@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 
 public class LogicScript : MonoBehaviour
@@ -10,106 +11,71 @@ public class LogicScript : MonoBehaviour
     public bool day3;
     public bool day4;
     public bool day5;
-    public bool day1Completed;
-    public bool day2Completed;
-    public bool day3Completed;
-    public bool day4Completed;
-    public bool day5Completed;
     public bool gameStarted;
     public int tasksCompleted;
     public int tasksFailed;
     public float gameTimer;
-
+    [SerializeField] TMP_Text dayText;
+    private GameObject startMenu;
+    private GameObject player;
     void Start()
     {
-        if (!gameStarted)
-        {
-            if (day2 && !day2Completed || day3 && !day3Completed)
-            {
-                gameTimer = 180f;
-                gameStarted = true;
-            }
-
-            if (day4 && !day4Completed || day5 && !day5Completed)
-            {
-                gameTimer = 150f;
-                gameStarted = true;
-            }     
-        }
-        
+        startMenu = GameObject.FindGameObjectWithTag("Start");
+        player = GameObject.FindGameObjectWithTag("Player");
+        dayText.text = "Day 1";
     }
     void Update()
     {
-        if (gameTimer > 0)
+        if (day5)
         {
-            gameTimer -= Time.deltaTime;
+            dayText.text = "Day 5";
+        } else if (day4)
+        {
+            dayText.text = "Day 4";
+        } else if (day3)
+        {
+            dayText.text = "Day 3";
+        } else if (day2)
+        {
+            dayText.text = "Day 2";
+        } else
+        {
+            dayText.text = "Day 1";
         }
 
-        if (Keyboard.current.fKey.wasPressedThisFrame)
+        if (!gameStarted)
         {
-            gameStarted = true;
-        }
-
-        if (gameStarted)
-        {
-            if (day1 && !day1Completed)
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                if (tasksCompleted == 5)
-                {
-                    tasksCompleted = 0;
-                    tasksFailed = 0;
-                    day1Completed = true;
-                    day2 = true;
-                    gameStarted = false;
-                    nextDay();
-                }
+                startMenu.SetActive(false);
+                setGameTimer();
+                tasksFailed = 0;
+                gameStarted = true;
             }
-
-            if (day2 && !day2Completed)
+        } else
+        {
+            if (gameTimer > 0)
             {
-                if (gameTimer <= 0)
-                {
-                    tasksCompleted = 0;
-                    tasksFailed = 0;
-                    day2Completed = true;
-                    day3 = true;
-                    gameStarted = false;
-                    nextDay();
-                }
-
-                if (tasksFailed == 8 || gameTimer == 0)
-                {
-                    loseGame();
-                }
+                gameTimer -= Time.deltaTime;
             }
             
-            if (day3 && !day3Completed)
+            if (day5)
             {
                 if (gameTimer <= 0)
                 {
-                    tasksCompleted = 0;
-                    tasksFailed = 0;
-                    day3Completed = true;
-                    day4 = true;
-                    gameStarted = false;
-                    nextDay();
+                    winGame();
                 }
 
-                if (tasksFailed == 6)
+                if (tasksFailed == 2)
                 {
                     loseGame();
                 }
-            }
-
-            if (day4 && !day4Completed)
+            } else if (day4)
             {
                 if (gameTimer <= 0)
                 {
-                    tasksCompleted = 0;
-                    tasksFailed = 0;
-                    day4Completed = true;
+                    day4 = false;
                     day5 = true;
-                    gameStarted = false;
                     nextDay();
                 }
 
@@ -117,20 +83,39 @@ public class LogicScript : MonoBehaviour
                 {
                     loseGame();
                 }
-            }
-            
-            if (day5 && !day5Completed)
+            } else if (day3)
             {
                 if (gameTimer <= 0)
                 {
-                    tasksCompleted = 0;
-                    tasksFailed = 0;
-                    winGame();
+                    day3 = false;
+                    day4 = true;
+                    nextDay();
                 }
 
-                if (tasksFailed == 2)
+                if (tasksFailed == 6)
                 {
                     loseGame();
+                }
+            } else if (day2)
+            {
+                if (gameTimer <= 0)
+                {
+                    day2 = false;
+                    day3 = true;
+                    nextDay();
+                }
+
+                if (tasksFailed == 8)
+                {
+                    loseGame();
+                }
+            } else
+            {
+                if (tasksCompleted == 5)
+                {
+                    day1 = false;
+                    day2 = true;
+                    nextDay();
                 }
             }
         }
@@ -146,12 +131,30 @@ public class LogicScript : MonoBehaviour
     }
     void nextDay()
     {
-        SceneManager.LoadScene("Gameplay 1");
+        gameStarted = false;
+        startMenu.SetActive(true);
+        tasksCompleted = 0;
+        tasksFailed = 0;
+        player.transform.position = new Vector2(.29f, -14.62f);
+    }
+    void setGameTimer()
+    {
+        if (day2 || day3)
+        {
+            gameTimer = 180f;
+            gameStarted = true;
+        }
+
+        if (day4 || day5)
+        {
+            gameTimer = 150f;
+            gameStarted = true;
+        }  
     }
     void winGame()
     {
         Debug.Log("YOU WIN");
-        Scenemanager.LoadScene("Win");
+        SceneManager.LoadScene("Win");
     }
     
     void loseGame()

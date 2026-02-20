@@ -11,6 +11,7 @@ TagManager:
   - Door
   - TrashZone
   - Logic
+  - Start
   layers:
   - Default
   - TransparentFX

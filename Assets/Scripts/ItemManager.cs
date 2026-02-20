@@ -11,7 +11,6 @@ public class ItemManager : MonoBehaviour
     }
     public void assignRandomItem()
     {
-
         if (logic.day5 || logic.day4)
         {
             int randomIndex = Random.Range(0, 9);

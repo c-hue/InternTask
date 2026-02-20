@@ -3,15 +3,13 @@ using UnityEngine.InputSystem;
 public class Request : MonoBehaviour
 {
     private ItemManager itemManager;
-    public float createRequestTimer;
-    private float deleteRequestTimer;
+    public float deleteRequestTimer;
     private SpriteRenderer itemRequestSprite;
     private SpriteRenderer requestSprite;
     private bool requestActive;
     public LogicScript logic;
     void Start()
     {
-        createRequestTimer = Random.Range(5f, 30f);
         itemManager = this.GetComponent<ItemManager>();
         requestSprite = this.GetComponent<SpriteRenderer>();
         itemRequestSprite = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -20,30 +18,42 @@ public class Request : MonoBehaviour
 
     void Update()
     {
-        if (!requestActive)
+        if (logic.gameStarted)
         {
-            if (createRequestTimer > 0)
-            {
-                createRequestTimer -= Time.deltaTime;
-            } else
-            {
-                CreateRequest();
-            }
+                if (deleteRequestTimer > 0)
+                {
+                    deleteRequestTimer -= Time.deltaTime;
+                } else
+                {
+                    if (!logic.day1 && requestActive)
+                    {
+                        DeleteRequest();
+                    }
+                    
+                }
         } else
         {
-            if (deleteRequestTimer > 0)
-            {
-                deleteRequestTimer -= Time.deltaTime;
-            } else
-            {
-                DeleteRequest();
-            }
+            itemRequestSprite.sprite = null;
+            requestSprite.enabled = false;
+            requestActive = false;
         }
+        
     }
     
-    void CreateRequest()
+    public void CreateRequest()
     {
-        deleteRequestTimer = 20f;
+        if (logic.day5)
+        {
+            deleteRequestTimer = 25f;
+        } else if (logic.day4) {
+            deleteRequestTimer = 30f;
+        } else if (logic.day3)
+        {
+            deleteRequestTimer = 35f;
+        } else
+        {
+            deleteRequestTimer = 40f;
+        } 
         itemManager.assignRandomItem();
         itemRequestSprite.sprite = itemManager.currentItem.icon;
         requestSprite.enabled = true;
@@ -54,9 +64,8 @@ public class Request : MonoBehaviour
     {
         itemRequestSprite.sprite = null;
         requestSprite.enabled = false;
-        createRequestTimer = Random.Range(5f, 30f);
-        requestActive = false;
         logic.taskFailed();
+        requestActive = false;
     }
 
 

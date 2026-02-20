@@ -52,7 +52,6 @@ public class Delivery : MonoBehaviour
                         itemRenderer.enabled = false;
                         request.GetComponent<SpriteRenderer>().enabled = false;
                         request.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
-                        request.GetComponent<Request>().createRequestTimer = Random.Range(5f, 30f);
                         logic.taskCompleted();
                         Debug.Log("Delivery Made");
                     }

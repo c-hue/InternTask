@@ -17,36 +17,45 @@ public class Driver : MonoBehaviour
     [SerializeField] Sprite leftSprite;
     [SerializeField] Sprite rightSprite;
     private SpriteRenderer sr;
+    public LogicScript logic;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
     }
+    void Start()
+    {
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // Movement
-        if (Keyboard.current.wKey.isPressed)
+        if (logic.gameStarted)
         {
-            transform.Translate(0, currentSpeed * Time.deltaTime, 0);
-            sr.sprite = backSprite;
+            // Movement
+            if (Keyboard.current.wKey.isPressed)
+            {
+                transform.Translate(0, currentSpeed * Time.deltaTime, 0);
+                sr.sprite = backSprite;
+            }
+            else if (Keyboard.current.sKey.isPressed)
+            {
+                transform.Translate(0, -currentSpeed * Time.deltaTime, 0);
+                sr.sprite = frontSprite;
+            }
+            else if (Keyboard.current.aKey.isPressed)
+            {
+                transform.Translate(-currentSpeed * Time.deltaTime, 0, 0);
+                sr.sprite = leftSprite;
+            }
+            else if (Keyboard.current.dKey.isPressed)
+            {
+                transform.Translate(currentSpeed * Time.deltaTime, 0,0);
+                sr.sprite = rightSprite;
+            }
         }
-        else if (Keyboard.current.sKey.isPressed)
-        {
-            transform.Translate(0, -currentSpeed * Time.deltaTime, 0);
-            sr.sprite = frontSprite;
-        }
-        else if (Keyboard.current.aKey.isPressed)
-        {
-            transform.Translate(-currentSpeed * Time.deltaTime, 0, 0);
-            sr.sprite = leftSprite;
-        }
-        else if (Keyboard.current.dKey.isPressed)
-        {
-            transform.Translate(currentSpeed * Time.deltaTime, 0,0);
-            sr.sprite = rightSprite;
-        }
+        
     }
 
     // Hazard Slow / Boost Fast Logic
