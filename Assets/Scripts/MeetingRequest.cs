@@ -7,10 +7,11 @@ public class MeetingRequest : MonoBehaviour
     private float deleteRequestTimer;
     public SpriteRenderer itemRequestSprite;
     private SpriteRenderer requestSprite;
-    private bool day3;
+    public LogicScript logic;
     void Start()
     {
-        if (day3)
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        if (logic.day3)
         {
             createRequestTimer = Random.Range(5f, 30f);
         }
@@ -21,7 +22,7 @@ public class MeetingRequest : MonoBehaviour
 
     void Update()
     {
-        if (day3)
+        if (logic.day3)
         {
             if (createRequestTimer > 0 && deleteRequestTimer == 0)
             {

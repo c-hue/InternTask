@@ -8,13 +8,14 @@ public class Request : MonoBehaviour
     private SpriteRenderer itemRequestSprite;
     private SpriteRenderer requestSprite;
     private bool requestActive;
+    public LogicScript logic;
     void Start()
     {
         createRequestTimer = Random.Range(5f, 30f);
-        Debug.Log(createRequestTimer);
         itemManager = this.GetComponent<ItemManager>();
         requestSprite = this.GetComponent<SpriteRenderer>();
         itemRequestSprite = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     void Update()
@@ -55,6 +56,7 @@ public class Request : MonoBehaviour
         requestSprite.enabled = false;
         createRequestTimer = Random.Range(5f, 30f);
         requestActive = false;
+        logic.taskFailed();
     }
 
 

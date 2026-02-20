@@ -7,10 +7,11 @@ public class BossRequest : MonoBehaviour
     private float deleteRequestTimer;
     private SpriteRenderer itemRequestSprite;
     private SpriteRenderer requestSprite;
-    private bool day5;
+    public LogicScript logic;
     void Start()
     {
-        if (day5)
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
+        if (logic.day5)
         {
             createRequestTimer = Random.Range(5f, 30f);
         }
@@ -21,7 +22,7 @@ public class BossRequest : MonoBehaviour
 
     void Update()
     {
-        if (day5)
+        if (logic.day5)
         {
             if (createRequestTimer > 0 && deleteRequestTimer == 0)
             {

@@ -3,31 +3,26 @@ public class ItemManager : MonoBehaviour
 {
     public ItemType[] items;
     public ItemType currentItem;
-    private bool levelOne;
-    private bool levelTwo;
-    private bool levelThree;
+    public LogicScript logic;
 
     void Start()
     {
-        levelTwo = true;
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
     public void assignRandomItem()
     {
-        if (levelOne)
-        {
-            int randomIndex = Random.Range(0, 3);
-            currentItem = items[randomIndex];
-        }
 
-        if (levelTwo)
+        if (logic.day5 || logic.day4)
+        {
+            int randomIndex = Random.Range(0, 9);
+            currentItem = items[randomIndex];
+        } else if (logic.day3 || logic.day2) 
         {
             int randomIndex = Random.Range(0, 6);
             currentItem = items[randomIndex];
-        }
-
-        if (levelThree)
+        } else
         {
-            int randomIndex = Random.Range(0, 9);
+            int randomIndex = Random.Range(0, 3);
             currentItem = items[randomIndex];
         }
     }

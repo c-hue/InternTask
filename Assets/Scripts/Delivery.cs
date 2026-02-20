@@ -13,9 +13,11 @@ public class Delivery : MonoBehaviour
     private GameObject itemHolder;
     private GameObject request;
     private SpriteRenderer itemRenderer;
+    public LogicScript logic;
     void Start()
     {
         itemRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     void Update()
@@ -47,10 +49,11 @@ public class Delivery : MonoBehaviour
                         holdingItem = false;
                         itemHeld = "";
                         itemRenderer.sprite = null;
-                        itemRenderer.enabled = true;
+                        itemRenderer.enabled = false;
                         request.GetComponent<SpriteRenderer>().enabled = false;
                         request.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
                         request.GetComponent<Request>().createRequestTimer = Random.Range(5f, 30f);
+                        logic.taskCompleted();
                         Debug.Log("Delivery Made");
                     }
                     

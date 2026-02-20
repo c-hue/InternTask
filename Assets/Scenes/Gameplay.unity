@@ -384,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &118156112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &135620651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,6 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &422762821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,6 +1425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &494656171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5155,6 +5159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &722930251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6112,6 +6117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &1030988139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6811,6 +6817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0555e4ffddf745edb8dac0879f05409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  logic: {fileID: 0}
 --- !u!58 &1112857530
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21604,6 +21611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &1332607153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22914,6 +22922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &1821042476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23331,6 +23340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &2031279185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23508,6 +23518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &2050100662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23685,6 +23696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Request
   createRequestTimer: 0
+  logic: {fileID: 0}
 --- !u!114 &2092691161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23813,6 +23825,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &2136425751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136425752}
+  - component: {fileID: 2136425753}
+  m_Layer: 0
+  m_Name: Logic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136425752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136425751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.40822, y: -6.07975, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136425753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136425751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc55aa1d4b344dbeb8e1db908eb7f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LogicScript
+  day1: 1
+  day2: 0
+  day3: 0
+  day4: 0
+  day5: 0
+  day1Completed: 0
+  day2Completed: 0
+  day3Completed: 0
+  day4Completed: 0
+  day5Completed: 0
+  tasksCompleted: 0
+  tasksFailed: 0
+  gameTimer: 0
 --- !u!1001 &3257932803080390939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23898,3 +23967,4 @@ SceneRoots:
   - {fileID: 1709393366}
   - {fileID: 1702371244}
   - {fileID: 495717128}
+  - {fileID: 2136425752}
