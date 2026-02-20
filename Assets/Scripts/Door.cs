@@ -11,9 +11,6 @@ public class Door : MonoBehaviour
     [SerializeField] private bool isLocked = false;
     [SerializeField] private GameObject doorLock; // lock visual when door is locked
 
-    [Header("Settings")]
-    [SerializeField] private int requestsRequired = 0; // unlock door after # requests met
-
     private SpriteRenderer sr;
     private BoxCollider2D col;
     private float closeDelay = 0.01f; // delay after player exits door to close
@@ -44,6 +41,7 @@ public class Door : MonoBehaviour
     // when player walks through door
     private void OnTriggerEnter2D(Collider2D other)
     {
+        AudioManager.instance.PlaySFX("DoorOpen");
         if (!isLocked) // Do not open door if locked
             sr.sprite = openedDoor; // open door
     }

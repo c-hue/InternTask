@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public Sounds[] musicSounds, sfxSounds;
-    public AudioSource musicSource, sfxSource;
+    public AudioSource musicSource, sfxLoopSource, sfxSource;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic("MenuMusic");
+        OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -60,5 +60,23 @@ public class AudioManager : MonoBehaviour
         if (s == null) return;
 
         sfxSource.PlayOneShot(s.clip, 1f);
+    }
+
+    public void PlayLoopSFX(string name)
+    {
+        Sounds s = Array.Find(sfxSounds, x => x.name == name);
+        if (s == null) return;
+
+        if (sfxLoopSource.clip == s.clip && sfxLoopSource.isPlaying) return;
+
+        sfxLoopSource.clip = s.clip;
+        sfxLoopSource.loop = true;
+        sfxLoopSource.Play();
+    }
+
+    public void StopSound()
+    {
+        sfxLoopSource.loop = false;
+        sfxLoopSource.Stop();
     }
 }

@@ -19,6 +19,9 @@ public class Driver : MonoBehaviour
     private SpriteRenderer sr;
     private LogicScript logic;
 
+    private bool isMoving;
+    private bool onHazard;
+
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -33,6 +36,8 @@ public class Driver : MonoBehaviour
     {
         if (logic.gameStarted)
         {
+            bool isMoving = true;
+
             // Movement
             if (Keyboard.current.wKey.isPressed)
             {
@@ -54,6 +59,22 @@ public class Driver : MonoBehaviour
                 transform.Translate(currentSpeed * Time.deltaTime, 0,0);
                 sr.sprite = rightSprite;
             }
+            else
+            {
+                isMoving = false;
+            }
+
+            if (isMoving)
+            {
+                if (onHazard)
+                    AudioManager.instance.PlayLoopSFX("PuddleWalking");
+                else
+                    AudioManager.instance.PlayLoopSFX("NormalWalking");
+            }
+            else
+            {
+                AudioManager.instance.StopSound();
+            }
         }
         
     }
@@ -62,10 +83,14 @@ public class Driver : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) 
     {
         if (collision.CompareTag("Hazard"))
+        {
+            onHazard = true;
             currentSpeed = slowSpeed;
+        }
 
         else if (collision.CompareTag("Boost")) // remove boost after use
         {
+            AudioManager.instance.PlaySFX("Boost");
             currentSpeed = boostSpeed;
             Destroy(collision.gameObject);
         }
@@ -74,7 +99,10 @@ public class Driver : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Hazard")) // only return to base speed after leaving hazard
+        {
+            onHazard = false;
             currentSpeed = baseSpeed;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision) // only return to base speed after collision

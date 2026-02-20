@@ -28,6 +28,7 @@ public class Delivery : MonoBehaviour
                 ItemType playerItem;
                 if (Keyboard.current.spaceKey.wasPressedThisFrame)
                 {
+                    AudioManager.instance.PlaySFX("PickUp");
                     playerItem = itemHolder.GetComponent<ItemHolder>().item;
                     itemHeld = playerItem.itemName;
                     itemRenderer.sprite = playerItem.icon;
@@ -62,6 +63,7 @@ public class Delivery : MonoBehaviour
             {
                 if (Keyboard.current.spaceKey.wasPressedThisFrame)
                 {
+                    AudioManager.instance.PlaySFX("Trash");
                     holdingItem = false;
                     itemHeld = "";
                     itemRenderer.sprite = null;

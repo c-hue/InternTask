@@ -135,10 +135,12 @@ public class LogicScript : MonoBehaviour
     
     public void taskCompleted()
     {
+        AudioManager.instance.PlaySFX("SuccessfulDelivery");
         tasksCompleted += 1;
     }
     public void taskFailed()
     {
+        AudioManager.instance.PlaySFX("FailedDelivery");
         tasksFailed += 1;
     }
     void nextDay()

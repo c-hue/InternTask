@@ -8,6 +8,7 @@ public class Request : MonoBehaviour
     private SpriteRenderer chatSprite;
     private bool requestActive;
     private LogicScript logic;
+    [SerializeField] Sprite greenChat;
     [SerializeField] Sprite redChat;
     [SerializeField] Sprite orangeChat;
     void Start()
@@ -31,6 +32,8 @@ public class Request : MonoBehaviour
                     {
                         chatSprite.sprite = orangeChat;
                     }
+                    else
+                        chatSprite.sprite = greenChat;
                 } else
                 {
                     if (!logic.day1 && requestActive)
