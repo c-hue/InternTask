@@ -4,14 +4,16 @@ public class Request : MonoBehaviour
 {
     private ItemManager itemManager;
     public float deleteRequestTimer;
-    private SpriteRenderer itemRequestSprite;
-    private SpriteRenderer requestSprite;
+    private SpriteRenderer itemRequestSprite;    
+    private SpriteRenderer chatSprite;
     private bool requestActive;
-    public LogicScript logic;
+    private LogicScript logic;
+    [SerializeField] Sprite redChat;
+    [SerializeField] Sprite orangeChat;
     void Start()
     {
-        itemManager = this.GetComponent<ItemManager>();
-        requestSprite = this.GetComponent<SpriteRenderer>();
+        itemManager = this.GetComponent<ItemManager>();     
+        chatSprite = this.GetComponent<SpriteRenderer>();   
         itemRequestSprite = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
@@ -23,6 +25,12 @@ public class Request : MonoBehaviour
                 if (deleteRequestTimer > 0)
                 {
                     deleteRequestTimer -= Time.deltaTime;
+                    if (deleteRequestTimer <= 10) {
+                        chatSprite.sprite = redChat;
+                    } else if (deleteRequestTimer <= 20)
+                    {
+                        chatSprite.sprite = orangeChat;
+                    }
                 } else
                 {
                     if (!logic.day1 && requestActive)
@@ -34,7 +42,7 @@ public class Request : MonoBehaviour
         } else
         {
             itemRequestSprite.sprite = null;
-            requestSprite.enabled = false;
+            this.gameObject.SetActive(false);
             requestActive = false;
         }
         
@@ -56,14 +64,14 @@ public class Request : MonoBehaviour
         } 
         itemManager.assignRandomItem();
         itemRequestSprite.sprite = itemManager.currentItem.icon;
-        requestSprite.enabled = true;
+        this.gameObject.SetActive(true);
         requestActive = true;
     }
 
     void DeleteRequest()
     {
         itemRequestSprite.sprite = null;
-        requestSprite.enabled = false;
+        this.gameObject.SetActive(false);
         logic.taskFailed();
         requestActive = false;
     }

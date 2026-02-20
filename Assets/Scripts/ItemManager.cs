@@ -3,7 +3,7 @@ public class ItemManager : MonoBehaviour
 {
     public ItemType[] items;
     public ItemType currentItem;
-    public LogicScript logic;
+    private LogicScript logic;
 
     void Start()
     {

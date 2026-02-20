@@ -18,26 +18,38 @@ public class LogicScript : MonoBehaviour
     [SerializeField] TMP_Text dayText;
     private GameObject startMenu;
     private GameObject player;
+    private Door supplyDoor1;
+    private Door supplyDoor2;
+    private Door meetingDoor;
+    private Door bossDoor;
     void Start()
     {
         startMenu = GameObject.FindGameObjectWithTag("Start");
         player = GameObject.FindGameObjectWithTag("Player");
         dayText.text = "Day 1";
+        supplyDoor1 = GameObject.Find("SupplyDoor1").GetComponent<Door>();
+        supplyDoor2 = GameObject.Find("SupplyDoor2").GetComponent<Door>();
+        meetingDoor = GameObject.Find("MeetingDoor").GetComponent<Door>();
+        bossDoor = GameObject.Find("BossDoor").GetComponent<Door>();
     }
     void Update()
     {
         if (day5)
         {
             dayText.text = "Day 5";
+            bossDoor.Unlock();
         } else if (day4)
         {
             dayText.text = "Day 4";
+            supplyDoor2.Unlock();
         } else if (day3)
         {
             dayText.text = "Day 3";
+            meetingDoor.Unlock();
         } else if (day2)
         {
             dayText.text = "Day 2";
+            supplyDoor1.Unlock();
         } else
         {
             dayText.text = "Day 1";

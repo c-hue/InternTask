@@ -17,7 +17,7 @@ public class Driver : MonoBehaviour
     [SerializeField] Sprite leftSprite;
     [SerializeField] Sprite rightSprite;
     private SpriteRenderer sr;
-    public LogicScript logic;
+    private LogicScript logic;
 
     void Awake()
     {

@@ -7,23 +7,29 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public bool isPaused;
+    private LogicScript logic;
     void Start()
     {
         pauseMenu.SetActive(false);
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if(logic.gameStarted)
         {
-            if(isPaused)
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
-                ResumeGame();
-            } else
-            {
-                PauseGame();
+                if(isPaused)
+                {
+                    ResumeGame();
+                } else
+                {
+                    PauseGame();
+                }
             }
         }
+        
     }
 
     public void PauseGame()

@@ -13,7 +13,7 @@ public class Delivery : MonoBehaviour
     private GameObject itemHolder;
     private GameObject request;
     private SpriteRenderer itemRenderer;
-    public LogicScript logic;
+    private LogicScript logic;
     void Start()
     {
         itemRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -50,7 +50,7 @@ public class Delivery : MonoBehaviour
                         itemHeld = "";
                         itemRenderer.sprite = null;
                         itemRenderer.enabled = false;
-                        request.GetComponent<SpriteRenderer>().enabled = false;
+                        request.SetActive(false);
                         request.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = null;
                         logic.taskCompleted();
                         Debug.Log("Delivery Made");
