@@ -300,10 +300,6 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e9d19448d7cc34de39c662b813ec31d8, type: 3}
   - name: GameplayMusic
     clip: {fileID: 8300000, guid: 56dca9356b2f64f3a9e7669d5c770063, type: 3}
-  - name: WinMusic
-    clip: {fileID: 8300000, guid: 0ed533413a7ca4cde82111b8b30f5598, type: 3}
-  - name: LoseMusic
-    clip: {fileID: 8300000, guid: ed10836bf47b34321a516665dcbe6620, type: 3}
   sfxSounds:
   - name: ButtonClick
     clip: {fileID: 8300000, guid: 84f75ee26cffc4b8d887144b8e2b401a, type: 3}

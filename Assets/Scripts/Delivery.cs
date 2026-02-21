@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 
 public class Delivery : MonoBehaviour
 {
-    private bool holdingItem;
+    public bool holdingItem;
     private bool inPickUpZone;
     private bool inDeliveryZone;
     private bool inTrashZone;
-    string itemHeld;
+    public string itemHeld;
     string requestItem;
     private GameObject itemHolder;
     private GameObject request;
-    private SpriteRenderer itemRenderer;
+    public SpriteRenderer itemRenderer;
     private LogicScript logic;
     void Start()
     {

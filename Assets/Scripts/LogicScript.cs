@@ -16,16 +16,19 @@ public class LogicScript : MonoBehaviour
     public int tasksFailed;
     public float gameTimer;
     [SerializeField] TMP_Text dayText;
+    [SerializeField] TMP_Text unlockedText;
     private GameObject startMenu;
     private GameObject player;
     private Door supplyDoor1;
     private Door supplyDoor2;
     private Door meetingDoor;
     private Door bossDoor;
+    private Delivery delivery;
     void Start()
     {
         startMenu = GameObject.FindGameObjectWithTag("Start");
         player = GameObject.FindGameObjectWithTag("Player");
+        delivery = GameObject.FindGameObjectWithTag("Player").GetComponent<Delivery>();
         dayText.text = "Day 1";
         supplyDoor1 = GameObject.Find("SupplyDoor1").GetComponent<Door>();
         supplyDoor2 = GameObject.Find("SupplyDoor2").GetComponent<Door>();
@@ -37,22 +40,27 @@ public class LogicScript : MonoBehaviour
         if (day5)
         {
             dayText.text = "Day 5";
+            unlockedText.text = "Boss Room Unlocked";
             bossDoor.Unlock();
         } else if (day4)
         {
             dayText.text = "Day 4";
+            unlockedText.text = "2nd Supply Room Unlocked";
             supplyDoor2.Unlock();
         } else if (day3)
         {
             dayText.text = "Day 3";
+            unlockedText.text = "Meeting Room Unlocked";
             meetingDoor.Unlock();
         } else if (day2)
         {
             dayText.text = "Day 2";
+            unlockedText.text = "1st Supply Room Unlocked";
             supplyDoor1.Unlock();
         } else
         {
             dayText.text = "Day 1";
+            unlockedText.text = "Tutorial: Complete 5 Tasks to Move On";
         }
 
         if (!gameStarted)
@@ -149,7 +157,11 @@ public class LogicScript : MonoBehaviour
         startMenu.SetActive(true);
         tasksCompleted = 0;
         tasksFailed = 0;
+        delivery.itemHeld = "";
+        delivery.itemRenderer.enabled = false;
+        delivery.holdingItem = false;
         player.transform.position = new Vector2(.29f, -14.62f);
+
     }
     void setGameTimer()
     {

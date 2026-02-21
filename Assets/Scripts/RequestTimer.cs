@@ -51,24 +51,23 @@ public class RequestTimer : MonoBehaviour
 
     void checkRequest ()
     {
-        if (request.deleteRequestTimer > 0) {
-            int newNum = Random.Range(1, 13);
+        int attempts = 0;
+
+        while (request.requestActive && attempts < 20)
+        {
+            int newNum;
+
             if (logic.day5)
-            {
-                newNum = Random.Range(1, 13);
-            } else if (logic.day4)
-            {
-                newNum = Random.Range(1, 12);
-            }
+                newNum = Random.Range(0, 13);
+            else if (logic.day4)
+                newNum = Random.Range(0, 12);
             else if (logic.day3)
-            {
+                newNum = Random.Range(0, 12);
+            else
                 newNum = Random.Range(1, 12);
-            } else
-            {
-                newNum = Random.Range(2, 12);
-            } 
-            request = this.transform.GetChild(newNum).GetComponent<Request>();
-            checkRequest();
+
+            request = transform.GetChild(newNum).GetComponent<Request>();
+            attempts++;
         }
     }
 }

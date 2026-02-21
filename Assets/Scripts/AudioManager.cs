@@ -41,7 +41,13 @@ public class AudioManager : MonoBehaviour
     {
         if (scene.name == "StartMenu" || scene.name == "HowToPlay")
             PlayMusic("MenuMusic");
-        else
+        else if (scene.name == "Win")
+        {
+            PlayMusic("WinMusic");
+        } else if (scene.name == "Lose")
+        {
+            PlayMusic("LoseMusic");
+        } else
             PlayMusic("GameplayMusic");
     }
 

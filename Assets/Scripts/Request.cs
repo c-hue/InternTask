@@ -6,7 +6,7 @@ public class Request : MonoBehaviour
     public float deleteRequestTimer;
     private SpriteRenderer itemRequestSprite;    
     private SpriteRenderer chatSprite;
-    private bool requestActive;
+    public bool requestActive;
     private LogicScript logic;
     [SerializeField] Sprite greenChat;
     [SerializeField] Sprite redChat;
