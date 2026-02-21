@@ -65,6 +65,7 @@ public class Request : MonoBehaviour
         {
             deleteRequestTimer = 40f;
         } 
+        AudioManager.instance.PlaySFX("NewRequest");
         itemManager.assignRandomItem();
         itemRequestSprite.sprite = itemManager.currentItem.icon;
         this.gameObject.SetActive(true);

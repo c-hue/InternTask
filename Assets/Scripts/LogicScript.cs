@@ -40,22 +40,22 @@ public class LogicScript : MonoBehaviour
         if (day5)
         {
             dayText.text = "Day 5";
-            unlockedText.text = "Boss Room Unlocked";
+            unlockedText.text = "Boss Room Unlocked!\nDo not fail more than 2 tasks.";
             bossDoor.Unlock();
         } else if (day4)
         {
             dayText.text = "Day 4";
-            unlockedText.text = "2nd Supply Room Unlocked";
+            unlockedText.text = "2nd Supply Room Unlocked!\nDo not fail more than 4 tasks.";
             supplyDoor2.Unlock();
         } else if (day3)
         {
             dayText.text = "Day 3";
-            unlockedText.text = "Meeting Room Unlocked";
+            unlockedText.text = "Meeting Room Unlocked!\nDo not fail more than 6 tasks.";
             meetingDoor.Unlock();
         } else if (day2)
         {
             dayText.text = "Day 2";
-            unlockedText.text = "1st Supply Room Unlocked";
+            unlockedText.text = "1st Supply Room Unlocked!\nDo not fail more than 8 tasks.";
             supplyDoor1.Unlock();
         } else
         {
@@ -167,7 +167,7 @@ public class LogicScript : MonoBehaviour
     {
         if (day2 || day3)
         {
-            gameTimer = 180f;
+            gameTimer = 120f;
             gameStarted = true;
         }
 

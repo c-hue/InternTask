@@ -41,14 +41,18 @@ public class AudioManager : MonoBehaviour
     {
         if (scene.name == "StartMenu" || scene.name == "HowToPlay")
             PlayMusic("MenuMusic");
+        else if (scene.name == "Gameplay")
+            PlayMusic("GameplayMusic");
+        else if (scene.name == "Lose")
+        {
+            musicSource.Stop();
+            PlaySFX("Lose");
+        }
         else if (scene.name == "Win")
         {
-            PlayMusic("WinMusic");
-        } else if (scene.name == "Lose")
-        {
-            PlayMusic("LoseMusic");
-        } else
-            PlayMusic("GameplayMusic");
+            musicSource.Stop();
+            PlaySFX("Win");
+        }
     }
 
     public void PlayMusic(string name)
